@@ -24,7 +24,7 @@ class QuickSort3W<C> extends QuickSort<C>{
 	
 	static void main(args)
 	{
-		def data = ['HOLE', 'KISS', 'TACO', 'BUSH', 'NENA', 'RUSH', 'MIMS', 'PINK', 'DIDO', 'SADE', 'ACDC', 'CAKE']
+		def data = ['B', 'A', 'A', 'A', 'B', 'B', 'B', 'A', 'B', 'A', 'B', 'B']
 		QuickSort3W<String> ss = new QuickSort3W<String>()
 		ss.test(data)
 	}

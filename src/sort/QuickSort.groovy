@@ -36,8 +36,8 @@ class QuickSort<C> extends SortAlgImp<C>{
 	
 	static void main(args)
 	{
-		def data = ['HOLE', 'KISS', 'TACO', 'BUSH', 'NENA', 'RUSH', 'MIMS', 'PINK', 'DIDO', 'SADE', 'ACDC', 'CAKE']
-		QuickSort<String> ss = new QuickSort<String>()
+		def data = [76, 94, 28, 83, 39, 64, 35, 71, 30, 81, 69, 21]
+		QuickSort<Integer> ss = new QuickSort<Integer>()
 		ss.test(data)
 	}
 }

@@ -1,7 +1,8 @@
 package ds
 
 public class BST<K extends Comparable<K>, V> {
-	private Node root
+	Node root
+	boolean debug=false
 	
 	private class Node
 	{
@@ -32,6 +33,7 @@ public class BST<K extends Comparable<K>, V> {
 		Node x = root
 		while(x!=null)
 		{
+			if(debug) printf("Comparing key='%s'...\n", x.key)
 			int c = k.compareTo(x.key)
 			if(c<0) x = x.left
 			else if(c>0) x = x.right
@@ -127,7 +129,7 @@ public class BST<K extends Comparable<K>, V> {
 	
 	public Iterable<K> itrator()
 	{
-		Queue<Node> queue = new LinkedList<Node>()
+		Queue<K> queue = new LinkedList<K>()
 		inorder(root, queue)
 		return queue	
 	}
@@ -150,13 +152,26 @@ public class BST<K extends Comparable<K>, V> {
 		else return rank(x.left)
 	}
 	
-	private void inorder(Node x, Queue<Node> queue)
+	private void inorder(Node x, Queue<K> queue)
 	{
 		// Property. Inorder traversal of a BST yields keys in ascending order.
 		if(x==null) return null
 		inorder(x.left, queue)
 		queue.add(x.key)
 		inorder(x.right, queue)
+	}
+	
+	private void levelOrder(Queue<Node> queue){levelOrder(root, queue)}
+	private void levelOrder(Node x, Queue<Node> queue)
+	{
+		Queue<Node> iQueue = new LinkedList<Node>(); iQueue.add(root)
+		while(!iQueue.isEmpty())
+		{
+			Node n = iQueue.poll()
+			queue.add(n.key)
+			if(n.left!=null) iQueue.add(n.left)
+			if(n.right!=null) iQueue.add(n.right)
+		}
 	}
 	
 	

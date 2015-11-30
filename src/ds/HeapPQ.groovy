@@ -7,7 +7,7 @@ class HeapPQ<E extends Comparable> {
 	public HeapPQ(int capacity)
 	{
 		c = capacity
-		a = new E[c+1]
+		a = new E[c+2]
 	}
 	
 	private void swim(int k)
@@ -42,10 +42,14 @@ class HeapPQ<E extends Comparable> {
 	}
 	
 	public void insert(E e)
-	{
-		if(N>=c) throw new java.lang.Exception("Out of size")
+	{		
 		a[++N]=e
 		swim(N)
+		if(N>c) 
+		{
+			del()
+			N--	
+		}	
 	}
 	
 	public boolean isEmpty(){return N==0}
